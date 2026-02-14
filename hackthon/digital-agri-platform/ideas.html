@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Innovation Hub - Organic Cultivation</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <span>🌱</span> Organic Cultivation
+            </div>
+            <ul class="sidebar-menu">
+                <li><a href="dashboard.html"><span>🏠</span> Dashboard</a></li>
+                <li><a href="recommendations.html"><span>🧠</span> Smart Crop Guide</a></li>
+                <li><a href="crops.html"><span>🌾</span> Crop Management</a></li>
+                <li><a href="market.html"><span>🛒</span> Direct Market</a></li>
+                <li><a href="ideas.html" class="active"><span>💡</span> Idea Submission</a></li>
+                <li><a href="queries.html"><span>❓</span> Queries</a></li>
+                <li><a href="schemes.html"><span>📜</span> Schemes</a></li>
+                <li><a href="admin.html"><span>⚙️</span> Admin Panel</a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <header class="d-flex justify-between align-center mb-4">
+                <div>
+                    <h2>Submit Innovative Ideas</h2>
+                    <p class="text-muted">Share your farming techniques and innovations.</p>
+                </div>
+                <button id="add-idea-btn" class="btn btn-primary" onclick="showModal()">+ Submit Idea</button>
+            </header>
+
+            <div class="grid grid-2" id="ideas-grid">
+                <!-- Ideas populated here -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal -->
+    <div id="idea-modal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="hideModal()">&times;</button>
+            <h3>Submit New Idea</h3>
+            <form id="idea-form">
+                <div class="form-group">
+                    <label class="form-label">Title</label>
+                    <input type="text" id="idea-title" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Category</label>
+                    <select id="idea-category" class="form-control">
+                        <option>Farming Technique</option>
+                        <option>Tool/Equipment</option>
+                        <option>Pest Control</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Description</label>
+                    <textarea id="idea-desc" class="form-control" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Idea</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/ideas.js"></script>
+</body>
+
+</html>

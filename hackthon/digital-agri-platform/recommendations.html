@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Crop Guide - Organic Cultivation</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <span>🌱</span> Organic Cultivation
+            </div>
+            <ul class="sidebar-menu">
+                <li><a href="dashboard.html"><span>🏠</span> Dashboard</a></li>
+                <li><a href="recommendations.html" class="active"><span>🧠</span> Smart Crop Guide</a></li>
+                <li><a href="crops.html"><span>🌾</span> My Crops</a></li>
+                <li><a href="market.html"><span>🛒</span> Mandi Market</a></li>
+                <li><a href="ideas.html"><span>💡</span> Ideas</a></li>
+                <li><a href="queries.html"><span>❓</span> Ask Expert</a></li>
+                <li><a href="schemes.html"><span>📜</span> Govt Schemes</a></li>
+                <li><a href="admin.html"><span>⚙️</span> Admin</a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <header class="mb-4">
+                <h2>Smart Crop Recommendation</h2>
+                <p class="text-muted">Select your region and soil details to get scientific crop suggestions.</p>
+            </header>
+
+            <div class="card mb-4">
+                <form id="recommendation-form">
+                    <div class="grid grid-3">
+                        <div class="form-group">
+                            <label class="form-label">State (Rajya)</label>
+                            <select id="state-select" class="form-control" required>
+                                <option value="">Select State</option>
+                                <option value="Punjab">Punjab</option>
+                                <option value="Maharashtra">Maharashtra</option>
+                                <option value="Tamil Nadu">Tamil Nadu</option>
+                                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Soil Type (Mitti)</label>
+                            <select id="soil-select" class="form-control" required>
+                                <option value="">Select Soil</option>
+                                <option value="Alluvial">Alluvial (Jalodh)</option>
+                                <option value="Black">Black (Kali)</option>
+                                <option value="Red">Red (Laal)</option>
+                                <option value="Laterite">Laterite</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Season (Mausam)</label>
+                            <select id="season-select" class="form-control" required>
+                                <option value="">Select Season</option>
+                                <option value="Kharif">Kharif (Monsoon)</option>
+                                <option value="Rabi">Rabi (Winter)</option>
+                                <option value="Zaid">Zaid (Summer)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Get Suggestions</button>
+                </form>
+            </div>
+
+            <div id="results-area" class="d-none">
+                <h3 class="mb-3">Recommended Crops</h3>
+                <div class="grid grid-2" id="crop-suggestions">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/recommendations.js"></script>
+</body>
+
+</html>

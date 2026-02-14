@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - AgriConnect</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Chart.js for charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <span>🌱</span> Organic Cultivation
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="dashboard.html" class="active"><span>🏠</span> Dashboard</a></li>
+            <li><a href="recommendations.html"><span>🧠</span> Smart Crop Guide</a></li>
+            <li><a href="crops.html"><span>🌾</span> Crop Management</a></li>
+            <li><a href="market.html"><span>🛒</span> Direct Market</a></li>
+            <li><a href="ideas.html"><span>💡</span> Idea Submission</a></li>
+            <li><a href="queries.html"><span>❓</span> Queries</a></li>
+            <li><a href="schemes.html"><span>📜</span> Schemes</a></li>
+            <li><a href="admin.html"><span>⚙️</span> Admin Panel</a></li>
+        </ul>
+        <div style="margin-top: auto; padding: 1rem;">
+            <button onclick="logout()" class="btn btn-secondary"
+                style="width: 100%; color: white; border-color: rgba(255,255,255,0.5);">Logout</button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Header -->
+        <header class="d-flex justify-between align-center mb-4">
+            <div>
+                <button id="sidebar-toggle" class="btn btn-secondary" style="margin-right: 1rem;">☰</button>
+                <h2 style="display: inline-block;">Welcome back, <span id="user-name-display">Farmer</span>! 👨‍🌾</h2>
+            </div>
+            <div class="d-flex align-center gap-2">
+                <button class="theme-toggle" id="theme-toggle">🌙</button>
+                <div class="card" style="padding: 0.5rem 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <span>📍</span> <span id="user-location">Loading...</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Weather Widget -->
+        <section class="mb-4">
+            <div class="card"
+                style="background: linear-gradient(135deg, var(--primary-color), var(--primary-dark)); color: white;">
+                <div class="d-flex justify-between align-center">
+                    <div>
+                        <h3>Today's Weather</h3>
+                        <div class="d-flex align-center gap-2 mt-2">
+                            <span style="font-size: 3rem;">⛅</span>
+                            <div>
+                                <h2 style="margin: 0; color: white;">24°C</h2>
+                                <p>Partly Cloudy</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <p>Humidity: 65%</p>
+                        <p>Wind: 12 km/h</p>
+                        <p>Rain: 10%</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Grid -->
+        <section class="grid grid-3 mb-4">
+            <div class="card">
+                <h3>Active Crops</h3>
+                <p style="font-size: 2rem; font-weight: bold; color: var(--primary-color);" id="active-crops-count">0
+                </p>
+                <div style="font-size: 0.9rem; color: var(--text-muted);">In current season</div>
+            </div>
+            <div class="card">
+                <h3>Pending Queries</h3>
+                <p style="font-size: 2rem; font-weight: bold; color: var(--warning);" id="pending-queries-count">0</p>
+                <div style="font-size: 0.9rem; color: var(--text-muted);">Waiting for response</div>
+            </div>
+            <div class="card">
+                <h3>Market Listings</h3>
+                <p style="font-size: 2rem; font-weight: bold; color: var(--secondary-color);"
+                    id="market-listings-count">0</p>
+                <div style="font-size: 0.9rem; color: var(--text-muted);">Products for sale</div>
+            </div>
+        </section>
+
+        <!-- Recent Activity & Charts -->
+        <section class="grid grid-2">
+            <div class="card">
+                <h3>Yield Trends</h3>
+                <canvas id="yieldChart"></canvas>
+            </div>
+            <div class="card">
+                <h3>Recent Activity</h3>
+                <ul id="activity-list" style="list-style: none; margin-top: 1rem;">
+                    <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border-color);">Login from new device
+                    </li>
+                    <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border-color);">Updated wheat crop
+                        status</li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="notification-container" class="notification-container"></div>
+
+    <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+
+</html>
