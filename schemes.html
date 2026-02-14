@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schemes & Support - Organic Cultivation</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <span>🌱</span> KisanMitr
+            </div>
+            <ul class="sidebar-menu">
+                <li><a href="dashboard.html"><span>🏠</span> Dashboard</a></li>
+                <li><a href="recommendations.html"><span>🧠</span> Smart Crop Guide</a></li>
+                <li><a href="crops.html"><span>🌾</span> My Crops</a></li>
+                <li><a href="market.html"><span>🛒</span> Mandi Market</a></li>
+                <li><a href="ideas.html"><span>💡</span> Ideas</a></li>
+                <li><a href="queries.html"><span>❓</span> Ask Expert</a></li>
+                <li><a href="schemes.html" class="active"><span>📜</span> Govt Schemes</a></li>
+                <li><a href="admin.html"><span>⚙️</span> Admin</a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <header class="mb-4">
+                <h2>Government Schemes (Sarkari Yojna)</h2>
+                <p class="text-muted">Benefit from Central and State government agriculture schemes.</p>
+
+                <div class="mt-4">
+                    <button class="btn btn-primary" onclick="filterSchemes('all')">All</button>
+                    <button class="btn btn-secondary" onclick="filterSchemes('central')">Central Govt</button>
+                    <button class="btn btn-secondary" onclick="filterSchemes('state')">State Govt</button>
+                </div>
+            </header>
+
+            <div class="grid grid-2" id="schemes-grid">
+                <!-- Populated by JS -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal for Details -->
+    <div id="scheme-modal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeSchemeModal()">&times;</button>
+            <h3 id="scheme-title" class="mb-2"></h3>
+            <span id="scheme-type"
+                style="background: var(--accent-color); color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem;"></span>
+            <p id="scheme-desc" class="text-muted mb-4 mt-2"></p>
+            <h4 class="mb-2">Benefits:</h4>
+            <ul id="scheme-benefits" class="mb-4" style="padding-left: 1.5rem;"></ul>
+            <a href="#" class="btn btn-primary" id="apply-btn" target="_blank">Apply Here</a>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        const schemes = [
+            {
+                id: 1,
+                title: "PM-Kisan Samman Nidhi",
+                type: "central",
+                desc: "Income support of ₹6,000 per year to all landholding farmer families.",
+                benefits: ["₹2000 every 4 months", "Direct Bank Transfer", "For all small/marginal farmers"],
+                link: "https://pmkisan.gov.in/"
+            },
+            {
+                id: 2,
+                title: "Pradhan Mantri Fasal Bima Yojana (PMFBY)",
+                type: "central",
+                desc: "Comprehensive crop insurance scheme against non-preventable natural risks.",
+                benefits: ["Lowest premium rates", "Full sum insured claim", "Localized calamity coverage"],
+                link: "https://pmfby.gov.in/"
+            },
+            {
+                id: 3,
+                title: "Soil Health Card Scheme",
+                type: "central",
+                desc: "Get information on nutrient status of your soil and fertilizer recommendations.",
+                benefits: ["Soil testing report every 3 years", "Fertilizer dosage recommendations", "Improved yield & soil health"],
+                link: "https://soilhealth.dac.gov.in/"
+            },
+            {
+                id: 4,
+                title: "Kisan Credit Card (KCC)",
+                type: "central",
+                desc: "Adequate and timely credit support from banking system.",
+                benefits: ["Low interest rate (4% on timely repayment)", "Atm enabled RuPay card", "Coverage for crop & animal husbandry"],
+                link: "https://www.myscheme.gov.in/schemes/kcc"
+            },
+            {
+                id: 5,
+                title: "Rythu Bandhu (Telangana)",
+                type: "state",
+                desc: "Investment support for agriculture and horticulture crops.",
+                benefits: ["₹5000 per acre per season", "Twice a year (Rabi & Kharif)", "Direct cash transfer"],
+                link: "#"
+            },
+            {
+                id: 6,
+                title: "Kalia Scheme (Odisha)",
+                type: "state",
+                desc: "Krushak Assistance for Livelihood and Income Augmentation.",
+                benefits: ["Financial assistance to cultivators", "Livelihood support for landless", "Insurance cover"],
+                link: "#"
+            }
+        ];
+
+        const grid = document.getElementById('schemes-grid');
+        const modal = document.getElementById('scheme-modal');
+
+        function renderSchemes(filter = 'all') {
+            grid.innerHTML = '';
+            const filtered = filter === 'all' ? schemes : schemes.filter(s => s.type === filter);
+
+            filtered.forEach(s => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <div class="d-flex justify-between align-center">
+                        <h3 class="mb-2">${s.title}</h3>
+                        <span style="font-size: 0.8rem; background: ${s.type === 'central' ? 'var(--primary-color)' : 'var(--secondary-color)'}; color: white; padding: 2px 6px; border-radius: 4px;">${s.type.toUpperCase()}</span>
+                    </div>
+                    <p class="text-muted mb-4">${s.desc}</p>
+                    <button class="btn btn-secondary" onclick="viewScheme(${s.id})">View Details</button>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function viewScheme(id) {
+            const s = schemes.find(x => x.id === id);
+            document.getElementById('scheme-title').textContent = s.title;
+            document.getElementById('scheme-type').textContent = s.type.toUpperCase() + " GOVT";
+            document.getElementById('scheme-desc').textContent = s.desc;
+            document.getElementById('apply-btn').href = s.link;
+
+            const ul = document.getElementById('scheme-benefits');
+            ul.innerHTML = '';
+            s.benefits.forEach(b => {
+                const li = document.createElement('li');
+                li.textContent = b;
+                ul.appendChild(li);
+            });
+            modal.classList.add('active');
+        }
+
+        function closeSchemeModal() {
+            modal.classList.remove('active');
+        }
+
+        window.filterSchemes = renderSchemes;
+        renderSchemes();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expert Queries - Organic Cultivation</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <span>🌱</span> Organic Cultivation
+            </div>
+            <ul class="sidebar-menu">
+                <li><a href="dashboard.html"><span>🏠</span> Dashboard</a></li>
+                <li><a href="recommendations.html"><span>🧠</span> Smart Crop Guide</a></li>
+                <li><a href="crops.html"><span>🌾</span> Crop Management</a></li>
+                <li><a href="market.html"><span>🛒</span> Direct Market</a></li>
+                <li><a href="ideas.html"><span>💡</span> Idea Submission</a></li>
+                <li><a href="queries.html" class="active"><span>❓</span> Queries</a></li>
+                <li><a href="schemes.html"><span>📜</span> Schemes</a></li>
+                <li><a href="admin.html"><span>⚙️</span> Admin Panel</a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <header class="d-flex justify-between align-center mb-4">
+                <div>
+                    <h2>Ask an Expert</h2>
+                    <p class="text-muted">Get expert advice on your farming problems.</p>
+                </div>
+                <button id="raise-query-btn" class="btn btn-primary">+ Raise Query</button>
+            </header>
+
+            <div class="card mb-4" id="query-form-card" style="display: none;">
+                <h3>New Query</h3>
+                <form id="query-form">
+                    <div class="form-group">
+                        <label class="form-label">Subject</label>
+                        <input type="text" id="query-subject" class="form-control" required
+                            placeholder="Brief title of your problem">
+                    </div>
+                    <div class="grid grid-2 gap-2">
+                        <div class="form-group">
+                            <label class="form-label">Category</label>
+                            <select id="query-category" class="form-control">
+                                <option>Pest & Disease</option>
+                                <option>Fertilizer</option>
+                                <option>General Farming</option>
+                                <option>Marketing</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Attachments (Optional)</label>
+                            <input type="file" id="query-file" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Detailed Description</label>
+                        <textarea id="query-desc" class="form-control" rows="4" required
+                            placeholder="Describe your issue in detail..."></textarea>
+                    </div>
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-primary">Submit Query</button>
+                        <button type="button" class="btn btn-secondary"
+                            onclick="document.getElementById('query-form-card').style.display='none'">Cancel</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Query List -->
+            <div id="queries-list" class="d-flex flex-column gap-3">
+                <!-- Dynamically Populated -->
+            </div>
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/queries.js"></script>
+</body>
+
+</html>

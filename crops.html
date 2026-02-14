@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Crops - Organic Cultivation</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Sidebar and Main Content Wrapper -->
+    <div class="dashboard-container">
+
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <span>🌱</span> Organic Cultivation
+            </div>
+            <ul class="sidebar-menu">
+                <li><a href="dashboard.html"><span>🏠</span> Dashboard</a></li>
+                <li><a href="recommendations.html"><span>🧠</span> Smart Crop Guide</a></li>
+                <li><a href="crops.html" class="active"><span>🌾</span> Crop Management</a></li>
+                <li><a href="market.html"><span>🛒</span> Direct Market</a></li>
+                <li><a href="ideas.html"><span>💡</span> Idea Submission</a></li>
+                <li><a href="queries.html"><span>❓</span> Queries</a></li>
+                <li><a href="schemes.html"><span>📜</span> Schemes</a></li>
+                <li><a href="admin.html"><span>⚙️</span> Admin Panel</a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <header class="d-flex justify-between align-center mb-4">
+                <div>
+                    <h2 class="mb-2">My Crops</h2>
+                    <p class="text-muted">Manage your sowing, harvest, and fertilizer details.</p>
+                </div>
+                <button id="add-crop-btn" class="btn btn-primary">+ Add New Crop</button>
+            </header>
+
+            <!-- Search/Filter -->
+            <div class="card mb-4 p-3 d-flex gap-2">
+                <input type="text" id="search-crop" class="form-control" placeholder="Search crops...">
+                <select id="filter-season" class="form-control" style="width: 200px;">
+                    <option value="">All Seasons</option>
+                    <option value="Kharif">Kharif</option>
+                    <option value="Rabi">Rabi</option>
+                    <option value="Zaid">Zaid</option>
+                </select>
+                <button class="btn btn-secondary" onclick="exportCSV()">Export CSV</button>
+            </div>
+
+            <div class="card table-responsive">
+                <table id="crops-table">
+                    <thead>
+                        <tr>
+                            <th>Crop Name</th>
+                            <th>Season</th>
+                            <th>Sowing Date</th>
+                            <th>Expected Harvest</th>
+                            <th>Fertilizer</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Rows populated by JS -->
+                    </tbody>
+                </table>
+                <div id="no-data" class="text-center p-4 d-none">No crops found. Add one!</div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add/Edit Modal -->
+    <div id="crop-modal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <h3 id="modal-title" class="mb-4">Add New Crop</h3>
+            <form id="crop-form">
+                <input type="hidden" id="edit-id">
+                <div class="form-group">
+                    <label class="form-label">Crop Name</label>
+                    <input type="text" id="crop-name" class="form-control" required placeholder="e.g. Wheat, Rice">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Season</label>
+                    <select id="crop-season" class="form-control" required>
+                        <option value="Kharif">Kharif (Monsoon)</option>
+                        <option value="Rabi">Rabi (Winter)</option>
+                        <option value="Zaid">Zaid (Summer)</option>
+                    </select>
+                </div>
+                <div class="grid grid-2 gap-2">
+                    <div class="form-group">
+                        <label class="form-label">Sowing Date</label>
+                        <input type="date" id="sowing-date" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Harvest Date</label>
+                        <input type="date" id="harvest-date" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Fertilizer Used</label>
+                    <input type="text" id="fertilizer" class="form-control" placeholder="e.g. Urea, DAP">
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Save Crop Record</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/crops.js"></script>
+</body>
+
+</html>

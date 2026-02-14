@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriConnect - Digital E-Farming Platform</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <!-- Placeholder for icons -->
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            <span style="font-size: 2rem;">🌱</span> Organic Cultivation
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="login.html" class="btn btn-secondary">Login</a></li>
+            <li><a href="register.html" class="btn btn-primary">Join Now</a></li>
+        </ul>
+        <button class="theme-toggle" id="theme-toggle">🌙</button>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero"
+        style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1595123550441-d377e017de6a?q=80&w=2000&auto=format&fit=crop');">
+        <div class="hero-content fade-in">
+            <h1>Organic Cultivation - Your Smart Agri Partner</h1>
+            <p>Empowering Indian Farmers with Technology, Market Access, and Expert Advice.</p>
+            <div style="margin-top: 2rem;">
+                <a href="register.html" class="btn btn-primary" style="font-size: 1.2rem; padding: 1rem 2rem;">Get
+                    Started Free</a>
+                <a href="#features" class="btn btn-secondary"
+                    style="font-size: 1.2rem; padding: 1rem 2rem; border-color: white; color: white; margin-left: 1rem;">Learn
+                    More</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section id="features" style="padding: 4rem 5%; background-color: var(--bg-color);">
+        <div class="text-center mb-4">
+            <h2>Why Choose Organic Cultivation?</h2>
+            <p>Comprehensive tools designed for modern farming.</p>
+        </div>
+
+        <div class="grid grid-4">
+            <div class="card text-center">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">🌾</div>
+                <h3>Smart Crop Management</h3>
+                <p class="mb-3">Track sowing dates, fertilizers, and expected harvest times efficiently.</p>
+                <a href="crops.html" class="btn btn-secondary" style="font-size: 0.9rem;">Manage Crops</a>
+            </div>
+            <div class="card text-center">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">💰</div>
+                <h3>Direct Market Access</h3>
+                <p class="mb-3">Sell your produce directly to buyers without middlemen.</p>
+                <a href="market.html" class="btn btn-secondary" style="font-size: 0.9rem;">Visit Market</a>
+            </div>
+            <div class="card text-center">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">💡</div>
+                <h3>Expert Solutions</h3>
+                <p class="mb-3">Get instant answers to your farming queries and access government schemes.</p>
+                <a href="queries.html" class="btn btn-secondary" style="font-size: 0.9rem;">Ask Experts</a>
+            </div>
+            <div class="card text-center">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">🌦️</div>
+                <h3>Weather & Insights</h3>
+                <p class="mb-3">Real-time weather updates and personalized farming tips.</p>
+                <a href="dashboard.html" class="btn btn-secondary" style="font-size: 0.9rem;">View Insights</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background-color: var(--primary-dark); color: white; padding: 3rem 5%;">
+        <div class="grid grid-4">
+            <div>
+                <h3>Organic Cultivation</h3>
+                <p>Innovating Agriculture for a Better Tomorrow.</p>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <ul style="list-style: none; margin-top: 1rem;">
+                    <li><a href="#" style="color: rgba(255,255,255,0.7);">Home</a></li>
+                    <li><a href="#" style="color: rgba(255,255,255,0.7);">About Us</a></li>
+                    <li><a href="#" style="color: rgba(255,255,255,0.7);">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <p>Email: support@agriconnect.com</p>
+                <p>Phone: +1 234 567 890</p>
+                <p>Location: Tech City, Agro Park</p>
+            </div>
+            <div>
+                <h4>Newsletter</h4>
+                <div style="display: flex; gap: 0.5rem; margin-top: 1rem;">
+                    <input type="email" placeholder="Your email"
+                        style="border: none; padding: 0.5rem; border-radius: 4px; flex: 1;">
+                    <button class="btn btn-primary" style="padding: 0.5rem 1rem;">Subscribe</button>
+                </div>
+            </div>
+        </div>
+        <div class="text-center"
+            style="margin-top: 3rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem;">
+            &copy; 2026 Organic Cultivation. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- WhatsApp Share Button -->
+    <a href="https://wa.me/?text=Check%20out%20Organic%20Cultivation%20App!%20Join%20us%20for%20smart%20farming."
+        target="_blank"
+        style="position: fixed; bottom: 20px; right: 20px; background-color: #25D366; color: white; padding: 10px 15px; border-radius: 50px; box-shadow: 0 4px 6px rgba(0,0,0,0.2); font-weight: bold; font-size: 1rem; display: flex; align-items: center; gap: 8px; z-index: 1000;">
+        <i class="fab fa-whatsapp" style="font-size: 1.2rem;"></i> Share on WhatsApp
+    </a>
+
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
